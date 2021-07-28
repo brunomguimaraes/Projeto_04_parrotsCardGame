@@ -31,20 +31,56 @@ body {
 }
 
 .card {
-    background-color: #A7E9AF;
     width: 117px;
     height: 146px;
     margin-bottom: 34px;
     margin-right: 34px;
     border-radius: 5px;
+
+    position: relative;
+}
+
+.face {
+    width: 100%;
+    height: 100%;
+    background-color: #A7E9AF;
+    border-radius: 10px;
+    box-shadow: 5px 5px 1px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: all .5s;
+    transform-style: preserve-3d;
     border: 1px solid #99CEA8;
 }
 
-.parrot {
+.front-face img {
     width: 100px;
     height: 100px;
     margin: 24px 7px 22px 10px;
 }
+
+.back-face img {
+    width: 100px;
+    height: 100px;
+    margin: 24px 7px 22px 10px;
+}
+
+
+.back-face {
+    transform: rotateY(180deg);
+}
+
+.card:hover .back-face {
+    transform: rotateY(0deg);
+}
+
+.card:hover .front-face {
+    transform: rotateY(-180deg);
+}
+
 
 .hidden {
     display: none;
@@ -56,4 +92,14 @@ body {
         font-size: 36px;
     }
 
-  }
+}
+
+
+
+/*
+  .front-face {
+    width: 100px;
+    height: 100px;
+    margin: 24px 7px 22px 10px;
+}
+*/
