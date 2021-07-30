@@ -6,24 +6,41 @@ function comparador() {
 let numberOfCards;
 
 while ((numberOfCards % 2) !== 0 || (numberOfCards < 4) || (numberOfCards > 14)) {
-    numberOfCards = prompt("Com quantas cartas irá jogar?");
+    numberOfCards = Number(prompt("Com quantas cartas irá jogar?"));
+}
+
+let imgsList = ["bobrossparrot", "explodyparrot", "fiestaparrot", "metalparrot", "revertitparrot", "tripletsparrot", "unicornparrot"];
+imgsList.sort(comparador);
+
+let imgsChosen = [];
+for(let i = 0; i < numberOfCards/2; i++) {
+    imgsChosen.push(imgsList[i]);
+    imgsChosen.push(imgsList[i]);
+}
+
+imgsChosen.sort(comparador);
+
+
+for (let i = 0; i < imgsChosen.length; i++) {
+    let cards = document.querySelector(".cards");
+    cards.innerHTML += `<div class="card"><div class="front-face face" onclick="turnCard(this)"><img src="imagens/front.png"></div><div class="back-face face"><img src="imagens/${imgsChosen[i]}.gif"></div></div>`;
+}
+
+function turnCard (element) {
+
+    element.classList.add("turn-front-face");
+    element.nextElementSibling.classList.add("turn-back-face");
+
+
 }
 
 
 
-let cardsList = ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9", "c10", "c11", "c12", "c13", "c14"];
-cardsList.sort(comparador);
 
-let counter = 0;
 
-while(counter < numberOfCards) {
 
-    let usingCard = document.querySelector(`.cards .hidden.${cardsList[counter]}`);
-    usingCard.classList.remove("hidden");
 
-    counter++;
 
-}
 
 
 

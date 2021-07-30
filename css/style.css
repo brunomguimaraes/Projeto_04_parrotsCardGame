@@ -36,7 +36,6 @@ body {
     margin-bottom: 34px;
     margin-right: 34px;
     border-radius: 5px;
-
     position: relative;
 }
 
@@ -51,7 +50,7 @@ body {
     justify-content: center;
     position: absolute;
     backface-visibility: hidden;
-    transition: all .5s;
+    transition: all 0.5s;
     transform-style: preserve-3d;
     border: 1px solid #99CEA8;
 }
@@ -68,10 +67,19 @@ body {
     margin: 24px 7px 22px 10px;
 }
 
-
 .back-face {
     transform: rotateY(180deg);
 }
+
+.turn-back-face {
+    transform: rotateY(0deg);
+}
+
+.turn-front-face {
+    transform: rotateY(-180deg);
+}
+
+/*
 
 .card:hover .back-face {
     transform: rotateY(0deg);
@@ -81,10 +89,7 @@ body {
     transform: rotateY(-180deg);
 }
 
-
-.hidden {
-    display: none;
-}
+*/
 
 @media (max-width: 614px) {
 
@@ -94,12 +99,3 @@ body {
 
 }
 
-
-
-/*
-  .front-face {
-    width: 100px;
-    height: 100px;
-    margin: 24px 7px 22px 10px;
-}
-*/
