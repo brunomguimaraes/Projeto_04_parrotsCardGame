@@ -26,13 +26,48 @@ for (let i = 0; i < imgsChosen.length; i++) {
     cards.innerHTML += `<div class="card"><div class="front-face face" onclick="turnCard(this)"><img src="imagens/front.png"></div><div class="back-face face"><img src="imagens/${imgsChosen[i]}.gif"></div></div>`;
 }
 
+let turnedCards = [];
+
 function turnCard (element) {
 
-    element.classList.add("turn-front-face");
-    element.nextElementSibling.classList.add("turn-back-face");
+    if (turnedCards.length === 0 || turnedCards.length === 1) {
+
+        element.classList.add("turn-front-face");
+        element.nextElementSibling.classList.add("turn-back-face");
+
+        turnedCards = document.querySelectorAll(".turn-back-face img");
+        let firstOfPair = turnedCards[0].src;
+
+        if (turnedCards.length > 1) {
+            let secondOfPair = turnedCards[1].src;
+
+            if (firstOfPair === secondOfPair) {
+                console.log("YEAH!");
+
+            } else {
+                setTimeout(turnCardBack, 1000);
+            }
+        }
+        
+
+    }
 
 
 }
+
+
+function turnCardBack () {
+
+    for (let i = 0; i < 2; i++) {
+        let backFace = document.querySelector(".turn-back-face");
+        backFace.classList.remove("turn-back-face");
+        let frontFace = document.querySelector(".turn-front-face");
+        frontFace.classList.remove("turn-front-face");
+    }
+}
+
+
+
 
 
 
