@@ -79,6 +79,14 @@ body {
     transform: rotateY(-180deg);
 }
 
+.pair-back {
+    transform: rotateY(0deg);
+}
+
+.pair-front {
+    transform: rotateY(-180deg);
+}
+
 /*
 
 .card:hover .back-face {
