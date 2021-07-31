@@ -30,10 +30,8 @@ for (let i = 0; i < imgsChosen.length; i++) {
 // Cards Turning - Memory Game
 
 let turnedCards = [];
-let firstOfPair;
-let secondOfPair;
-let counter = 0;
 let teste1;
+let counter = 0;
 
 function turnCard (element) {
     
@@ -41,7 +39,7 @@ function turnCard (element) {
         
         element.classList.add("turn-front-face");
         element.nextElementSibling.classList.add("turn-back-face");
-
+        counter++;
         turnedCards = document.querySelectorAll(".turn-back-face img");
 
         if (turnedCards.length === 2) {
@@ -56,7 +54,7 @@ function turnCard (element) {
                         allImages[i].parentNode.previousElementSibling.classList.replace("turn-front-face", "pair-front");
                     }
                 }
-                
+                setTimeout(gameFinished, 200);
                 turnedCards = [];
                 
             } else {
@@ -82,6 +80,13 @@ function turnCardBack () {
     }
 
     turnedCards = [];
+}
+
+function gameFinished () {
+    let testando = document.querySelectorAll(".pair-front");
+    if (testando.length === numberOfCards) {
+        alert(`Você ganhou em ${counter} jogadas!`);
+    }
 }
 
 
