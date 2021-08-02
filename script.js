@@ -65,7 +65,6 @@ let min = setInterval(minutesCounter, 1000*60);
 // Cards Turning - Memory Game
 
 let turnedCards = [];
-let imgChosen;
 let counter = 0;
 
 function turnCard (element) {
